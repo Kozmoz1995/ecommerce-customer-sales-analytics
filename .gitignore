@@ -1,0 +1,9 @@
+*.pbix
+*.pbit
+*.csv
+*.xlsx
+*.bak
+*.zip
+.DS_Store
+Thumbs.db
+temp/
