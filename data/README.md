@@ -2,11 +2,12 @@
 
 ## Included file
 
-`raw/olist_order_payments_dataset.csv`
+`raw/order_payments/olist_order_payments_part_01.csv` through `part_09.csv`
 
 - Grain: one payment sequence within an order
 - Rows: 103,886
 - Size: approximately 5.8 MB
+- Storage: nine CSV parts with the same header and a maximum of 12,000 data rows per part
 - Primary candidate key: `order_id`, `payment_sequential`
 - Missing values found in the five expected fields: 0
 - Duplicate candidate keys found: 0
@@ -33,6 +34,8 @@
 
 ## Usage
 
-Import this file into `staging.order_payments`, then run the quality checks and financial reconciliation scripts. `Gross Sales` is calculated as the sum of `payment_value` in the Power BI model.
+In Power BI, choose **Get Data > Folder**, select `data/raw/order_payments/`, and use **Combine & Transform Data**. Because every part has the same header, the files append into one 103,886-row payment table.
+
+For SQL Server, import all nine parts into the same `staging.order_payments` table, then run the quality checks and financial reconciliation scripts. `Gross Sales` is calculated as the sum of `payment_value` in the Power BI model.
 
 Do not join this table directly to order items and sum both monetary fields. Aggregate payments and items independently at `order_id` grain before comparison to avoid many-to-many multiplication.
