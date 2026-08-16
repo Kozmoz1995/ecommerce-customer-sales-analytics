@@ -73,7 +73,7 @@ Raw CSV files -> SQL Server staging -> quality checks and reconciliation
 
 ## Included data
 
-`data/raw/olist_order_payments_dataset.csv` contains 103,886 payment records. The combination of `order_id` and `payment_sequential` is unique in the supplied file, and the five expected fields contain no missing values. See [data documentation](data/README.md) for the schema and validation summary.
+`data/raw/order_payments/` contains all 103,886 supplied payment records in nine GitHub-friendly CSV parts. Every part repeats the same header, so Power BI can ingest them directly with the Folder connector. The combination of `order_id` and `payment_sequential` is unique across the complete dataset, and the five expected fields contain no missing values. See [data documentation](data/README.md) for the schema and validation summary.
 
 The remaining source tables are not included yet. They can be added under `data/raw/` as they become available; the SQL source contract lists the complete expected set.
 
