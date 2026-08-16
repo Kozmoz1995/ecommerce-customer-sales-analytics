@@ -1,7 +1,8 @@
 *.pbix
 *.pbit
 *.csv
-!data/raw/olist_order_payments_dataset.csv
+!data/raw/order_payments/
+!data/raw/order_payments/*.csv
 *.xlsx
 *.bak
 *.zip
