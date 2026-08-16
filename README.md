@@ -8,7 +8,7 @@ An end-to-end SQL Server and Power BI portfolio project that turns Brazilian e-c
 
 The goal is not only to show sales totals. The model connects revenue with the operational and customer signals that explain it: delivery speed, late-order concentration, repeat purchasing, geographic contribution, payment behavior and review sentiment.
 
-The published repository intentionally contains reproducible SQL, DAX definitions, model documentation and report screenshots instead of the `.pbix` file or raw customer-level data.
+The published repository contains reproducible SQL, DAX definitions, model documentation, report screenshots and the supplied anonymized order-payment CSV. The `.pbix` file and customer-identifying raw files remain excluded.
 
 ## Dashboard overview
 
@@ -64,11 +64,18 @@ Raw CSV files -> SQL Server staging -> quality checks and reconciliation
 ## Repository structure
 
 ```text
+├── data/                # Included source files and data dictionary
 ├── dax/                 # Reusable Power BI measures
 ├── docs/                # Model, KPI and workflow documentation
 ├── screenshots/         # Final report pages
 └── sql/                 # Ordered SQL Server pipeline and analysis queries
 ```
+
+## Included data
+
+`data/raw/olist_order_payments_dataset.csv` contains 103,886 payment records. The combination of `order_id` and `payment_sequential` is unique in the supplied file, and the five expected fields contain no missing values. See [data documentation](data/README.md) for the schema and validation summary.
+
+The remaining source tables are not included yet. They can be added under `data/raw/` as they become available; the SQL source contract lists the complete expected set.
 
 ## Key metric rules
 
